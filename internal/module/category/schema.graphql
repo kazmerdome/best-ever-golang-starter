@@ -1,0 +1,51 @@
+# Models (types) & Enums
+# 
+type Category @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.Category") {
+  id: Uuid!
+  name: String!
+  slug: String
+  status: CategoryStatusEnum!
+  created_at: Time!
+  updated_at: Time!
+}
+
+enum CategoryStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.CategoryStatus") {
+  ACTIVE
+  PENDING
+  ARCHIVED
+}
+
+# Dto (inputs)
+# 
+input CreateCategoryDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.CreateDto") {
+  name: String!
+  slug: String
+  status: CategoryStatusEnum
+}
+
+input WhereCategoriesDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.WhereDto") {
+  name: StringFilter
+  slug: StringFilter
+  status: CategoryStatusEnum
+  sort: SortFilter
+  pagination: PaginationFilter
+}
+
+input UpdateCategoryDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.UpdateDto") {
+  name: String
+  slug: String
+  status: CategoryStatusEnum
+}
+
+# Queries and Mutations
+# 
+extend type Query {
+  getCategory(id: Uuid!): Category
+  listCategories(where: WhereCategoriesDto): [Category!]!
+}
+
+extend type Mutation {
+  createCategory(data: CreateCategoryDto!): Category             
+  updateCategory(id: Uuid!, data: UpdateCategoryDto!): Category  
+  deleteCategory(id: Uuid!): Boolean                          
+}

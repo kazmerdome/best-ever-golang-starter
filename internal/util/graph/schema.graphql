@@ -1,0 +1,96 @@
+# Directives
+# 
+
+directive @goModel(
+	model: String
+	models: [String!]
+) on OBJECT | INPUT_OBJECT | SCALAR | ENUM | INTERFACE | UNION
+
+directive @goField(
+	forceResolver: Boolean
+	name: String
+  omittable: Boolean
+) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+
+directive @goTag(
+	key: String!
+	value: String
+) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+
+# Scalars
+#
+scalar Time
+scalar Uuid @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Uuid")
+scalar Json @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Json")
+
+# Inputs
+# 
+input IntFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.IntFilter") {
+	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
+  eq: Int
+	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
+	gt: Int
+	"$gte selects the documents where the value of the field is greater than or equal to (i.e. >=) a specified value (e.g. value.)"
+	gte: Int
+	"$lt selects the documents where the value of the field is less than (i.e. <) the specified value."
+	lt: Int
+	"$lte selects the documents where the value of the field is less than or equal to (i.e. <=) the specified value."
+	lte: Int
+}
+
+input Float64Filter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.Float64Filter") {
+	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
+  eq: Float
+	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
+	gt: Float
+	"$gte selects the documents where the value of the field is greater than or equal to (i.e. >=) a specified value (e.g. value.)"
+	gte: Float
+	"$lt selects the documents where the value of the field is less than (i.e. <) the specified value."
+	lt: Float
+	"$lte selects the documents where the value of the field is less than or equal to (i.e. <=) the specified value."
+	lte: Float
+}
+
+input DateFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.DateFilter") {
+	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
+  eq: Time
+	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
+	gt: Time
+	"$gte selects the documents where the value of the field is greater than or equal to (i.e. >=) a specified value (e.g. value.)"
+	gte: Time
+	"$lt selects the documents where the value of the field is less than (i.e. <) the specified value."
+	lt: Time
+	"$lte selects the documents where the value of the field is less than or equal to (i.e. <=) the specified value."
+	lte: Time
+}
+
+input StringFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.StringFilter") {
+  "Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
+  eq: String
+  "Specifies a regular expression pattern for matching strings."
+  regex: String
+}
+
+input UuidFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.UuidFilter") {
+  "Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
+  eq: Uuid
+  "Specifies a list of UUID values. The $in operator matches documents where the value of a field equals any value in the specified list."
+  in: [Uuid!]
+}
+
+input SortFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortFilter") {
+  sortBy: String
+	sortOrder: SortOrder
+}
+
+input PaginationFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.PaginationFilter") {
+  limit: Int
+	skip: Int
+}
+
+# Enums
+# 
+enum SortOrder @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortOrder") {
+  asc
+	desc
+}

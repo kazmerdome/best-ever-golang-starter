@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  simple-blog-mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - 27010:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: your-username
+      MONGO_INITDB_ROOT_PASSWORD: your-password
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - best-ever-golang-starter
+
+  simple-blog-postgres:
+    image: postgres:14
+    ports:
+      - "5439:5432"
+    networks:
+      - best-ever-golang-starter
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=simple-blog
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=supersecretpassword
+
+  simple-blog-postgres-migrate:
+    image: migrate/migrate
+    volumes:
+      - ./db/migration:/migrations
+    networks:
+      - best-ever-golang-starter
+    depends_on:
+      - simple-blog-postgres
+    # entrypoint: ["/bin/sh", "-c", "sleep 3 && migrate -path=/migrations -database=postgres://postgres:supersecretpassword@simple-blog-postgres:5432/simple-blog?sslmode=disable up 1"]
+    working_dir: /migrations
+    entrypoint: >
+      /bin/sh -c "
+      sleep 3 &&
+      ls &&
+      migrate -path=/migrations -database=postgres://postgres:supersecretpassword@simple-blog-postgres:5432/simple-blog?sslmode=disable  --verbose up "";
+      "
+volumes:
+  mongodb_data:
+
+networks:
+  best-ever-golang-starter:

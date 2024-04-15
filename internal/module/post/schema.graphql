@@ -1,0 +1,59 @@
+# Models (types) & Enums
+# 
+type Post @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.Post") {
+  id: Uuid!
+  title: String!
+  slug: String!
+  category: Category!
+  status: PostStatusEnum!
+  content: String
+  created_at: Time!
+  updated_at: Time!
+}
+
+enum PostStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.PostStatus") {
+  ACTIVE
+  PENDING
+  ARCHIVED
+}
+
+# Dto (inputs)
+# 
+input CreatePostDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.CreateDto") {
+  title: String!
+  slug: String
+  status: PostStatusEnum!
+  category: Uuid!
+  content: String
+}
+
+input WherePostsDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.WhereDto") {
+  title: StringFilter
+  slug: StringFilter
+  category: UuidFilter
+  status: PostStatusEnum
+  sort: SortFilter
+  pagination: PaginationFilter
+}
+
+input UpdatePostDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.UpdateDto") {
+  title: String
+  slug: String
+  category: Uuid
+  status: PostStatusEnum
+  content: String
+}
+
+
+# Queries and Mutations
+# 
+extend type Query {
+  getPost(id: Uuid!): Post
+  listPosts(where: WherePostsDto): [Post!]!
+}
+
+extend type Mutation {
+  createPost(data: CreatePostDto!): Post             
+  updatePost(id: Uuid!, data: UpdatePostDto!): Post  
+  deletePost(id: Uuid!): Boolean                          
+}

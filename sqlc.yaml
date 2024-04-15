@@ -1,0 +1,13 @@
+version: "2"
+sql:
+- name: post
+  schema: "./db/migration"
+  queries: "./internal/module/post/post-querier"
+  engine: "postgresql"
+  gen:
+    go: 
+      package: "postQuerier"
+      out: "internal/module/post/post-querier"
+      emit_interface: true
+  rules:
+    - sqlc/db-prepare
