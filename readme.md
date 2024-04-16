@@ -31,14 +31,14 @@ The starter kit aims to take a stance in favor of structuring, in a more constra
 
 # About the project
 
-In the example project, we're building a lightweight blog. The blog will be accessible via a GraphQL gateway in the form of a web server. The blog has two business entities: categories and posts. Each post can be assigned to one or more categories. I've implemented CRUD operations for both domains as well as a data loader to assist with data population on the GraphQL side.
+In the example project, we're building a lightweight blog. The blog will be accessible via a GraphQL gateway in the form of a web server. The blog has two business entities: categories and posts. Each post can be assigned to a category. I've implemented CRUD operations for both domains as well as a data loader to assist with data population on the GraphQL side.
 
 ## Run the application
 
-Step 1 - open terminal from project folder and run `docker compose up`
-Step 2 - `cp .env.example .env`
-Step 3 - run `make run-simple-blog-graphql` OR use Visual Studio Code, Run and Debug Section to run simple-blog-graphql (Recommended way)
-Step 4. open `http://localhost:9099`
+1. open terminal from project folder and run `docker compose up`
+2. `cp .env.example .env`
+3. run `make run-simple-blog-graphql` OR use Visual Studio Code, Run and Debug Section to run simple-blog-graphql (Recommended way)
+4. open `http://localhost:9099`
 
 
 # About the structure
@@ -71,7 +71,7 @@ internal/
 
 In this structure, the actors are divided based on technologies. If we focus solely on the database actors, we can see that each database technology has its own folder. Within a given technology, we distinguish between definition files and implementation files. The definition files always bear the domain name. In my example, this is `mongodb.go`. These definition files contain a blueprint that we define for ourselves, specifying what we want to do with a given technology in our project. This definition may provide less functionality than the package with which we implement it, but that's perfectly fine. We can implement the definition files with anything, as long as we indicate the type of implementation somehow in the file and its name. In my example, `mongodb.mongodriver.go` is the implementation file because I implemented my definitions with the mongodriver package. If I were to use another package, the file name would be different, for example `mongodb.mgo.go` in the case of using the mgo package. It's also possible and even recommended to have multiple implementation files simultaneously, especially if we want a smooth transition from an old, outdated, or deprecated package to a new one.
 
-It's not worth creating a generic interface for a specific actor because we might lose the strength of the particular tool if we try to match it generically. For example, in the case of databases, we could create a generic interface with methods like GetOne, GetMany, etc., but this would diminish the power of certain databases.
+It's not worth creating a too generic interface for a specific actor because we might lose the strength of the particular tool if we try to match it generically. For example, in the case of databases, we could create a generic interface with methods like GetOne, GetMany, etc., but this would diminish the power of certain databases.
 
 ### Module / Domain Module:
 
@@ -133,7 +133,7 @@ In the example project, we are creating a simple blog. This blog has two domain 
 In the sample code, it can be seen that different technologies were used for implementing the repository definitions in the modules. The `category` repository provider implementation was done with MongoDB, while the `post` repository provider implementation was done with PostgreSQL (using sqlc). The naming conventions for the repositories follow the same pattern as with the actors, where the definition/implementation scheme is followed. The only difference is that if it is known that there will be no other implementation of a particular provider definition in the foreseeable future, the indication of the implementation technology can be omitted from the name. An example of this is the `service.go` file in my case.
 
 
-### Providers (Provider Definition, Provider Implementation)?
+### Providers (Provider Definition, Provider Implementation)
 
 - A provider covers a specific part of the tasks required for executing the business logic.
 - There are providers that are intended to introduce a specific technology (Actor) into the domain module, but a provider can also be a logical unit performing complex computational tasks.
