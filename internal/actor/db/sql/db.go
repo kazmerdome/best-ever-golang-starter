@@ -5,6 +5,9 @@ import (
 	"database/sql"
 )
 
+//go:generate make name=DB srcpkg=gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql mock
+//go:generate make name=SqlDB srcpkg=gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql mock
+
 type DB interface {
 	GetName() string
 	Connect() DB

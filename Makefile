@@ -55,6 +55,7 @@ unit-test-coverage:
 # generate mocks for a given interface |  usage: make name=HealthService mock
 # optional filename                    |  usage: make name=HealthService filename=mock_health_service.go mock
 # optional srcpkg                      |  usage: make name=HealthService srcpkg=github.com/yoyr/pkg mock
+# optional structname                  |  usage: make name=HealthService structname=X mock
 mock:
 	@echo "Generating mock for $(name)..."
 	@cmd="go run github.com/vektra/mockery/v2@latest --name=$(name) --recursive"; \
@@ -63,6 +64,9 @@ mock:
 	fi; \
 	if [ -n "$(srcpkg)" ]; then \
 		cmd="$$cmd --srcpkg=$(srcpkg)"; \
+	fi; \
+	if [ -n "$(structname)" ]; then \
+		cmd="$$cmd --structname=$(structname)"; \
 	fi; \
 	eval $$cmd
 

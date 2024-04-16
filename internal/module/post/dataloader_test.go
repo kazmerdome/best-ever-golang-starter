@@ -1,4 +1,4 @@
-package category_test
+package post_test
 
 import (
 	"context"
@@ -12,16 +12,18 @@ import (
 	"github.com/gosimple/slug"
 	"github.com/stretchr/testify/assert"
 	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
 	"gitlab.com/kazmerdome/best-ever-golang-starter/mocks"
 )
 
 type dataloaderFixture struct {
-	dataloader category.CategoryDataloader
+	dataloader post.PostDataloader
 	mocks      struct {
-		repository *mocks.CategoryRepository
+		repository *mocks.PostRepository
 	}
 	data struct {
 		ctx      context.Context
+		post     post.Post
 		category category.Category
 	}
 }
@@ -29,7 +31,7 @@ type dataloaderFixture struct {
 func newDataloaderFixture(t *testing.T) *dataloaderFixture {
 	t.Parallel()
 	f := &dataloaderFixture{}
-	f.mocks.repository = mocks.NewCategoryRepository(t)
+	f.mocks.repository = mocks.NewPostRepository(t)
 	f.data.category = category.Category{
 		Id:        uuid.New(),
 		Name:      faker.BeerName(),
@@ -38,7 +40,17 @@ func newDataloaderFixture(t *testing.T) *dataloaderFixture {
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
 	}
-	f.dataloader = category.NewCategoryDataloader(f.mocks.repository)
+	f.data.post = post.Post{
+		Id:        uuid.New(),
+		Title:     faker.BeerName(),
+		Category:  f.data.category.Id,
+		Slug:      slug.Make(f.data.post.Title),
+		Status:    post.StatusActive,
+		Content:   faker.Sentence(300),
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+	}
+	f.dataloader = post.NewPostDataloader(f.mocks.repository)
 	return f
 }
 
@@ -64,7 +76,7 @@ func TestItemLoader_SilentFailsOn_CategoryCasting(t *testing.T) {
 	var wg sync.WaitGroup
 	wg.Add(1)
 	uuid1 := uuid.New()
-	f.mocks.repository.EXPECT().GetManyByIds(f.data.ctx, []uuid.UUID{uuid1}).Return([]*category.Category{&f.data.category}, nil)
+	f.mocks.repository.EXPECT().GetManyByIds(f.data.ctx, []uuid.UUID{uuid1}).Return([]*post.Post{&f.data.post}, nil)
 	go func() {
 		defer wg.Done()
 		result, err := f.dataloader.ItemLoader(f.data.ctx, uuid1)
@@ -78,12 +90,12 @@ func TestItemLoader_Success(t *testing.T) {
 	f := newDataloaderFixture(t)
 	var wg sync.WaitGroup
 	wg.Add(1)
-	f.mocks.repository.EXPECT().GetManyByIds(f.data.ctx, []uuid.UUID{f.data.category.Id}).Return([]*category.Category{&f.data.category}, nil)
+	f.mocks.repository.EXPECT().GetManyByIds(f.data.ctx, []uuid.UUID{f.data.post.Id}).Return([]*post.Post{&f.data.post}, nil)
 	go func() {
 		defer wg.Done()
-		result, err := f.dataloader.ItemLoader(f.data.ctx, f.data.category.Id)
+		result, err := f.dataloader.ItemLoader(f.data.ctx, f.data.post.Id)
 		assert.NoError(t, err)
-		assert.Equal(t, f.data.category, *result)
+		assert.Equal(t, f.data.post, *result)
 	}()
 	wg.Wait()
 }
