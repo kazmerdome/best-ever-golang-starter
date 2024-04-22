@@ -33,6 +33,12 @@ The starter kit aims to take a stance in favor of structuring, in a more constra
 
 In the example project, we're building a lightweight blog. The blog will be accessible via a GraphQL gateway in the form of a web server. The blog has two business entities: categories and posts. Each post can be assigned to a category. I've implemented CRUD operations for both domains as well as a data loader to assist with data population on the GraphQL side.
 
+- 🏄‍♂️ Graphql (GqlGen)
+- 🦖 Mongodb (mongo go river)
+- 👩🏼‍🔧 Postgres (sqlc)
+- 💽 Dataloader (graph-gophers)
+- ♻️ Echo Server (labstack echo)
+
 ## Run the application
 
 1. open terminal from project folder and run `docker compose up`
