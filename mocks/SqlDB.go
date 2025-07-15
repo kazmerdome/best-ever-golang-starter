@@ -5,8 +5,8 @@ package mocks
 import (
 	context "context"
 
+	db "github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql"
 	mock "github.com/stretchr/testify/mock"
-	db "gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql"
 
 	sql "database/sql"
 )

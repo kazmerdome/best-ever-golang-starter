@@ -10,12 +10,12 @@ import (
 	faker "github.com/brianvoe/gofakeit/v6"
 	"github.com/google/uuid"
 	"github.com/gosimple/slug"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/post"
+	postQuerier "github.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
+	"github.com/kazmerdome/best-ever-golang-starter/mocks"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
-	postQuerier "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/mocks"
 )
 
 type repositoryFixture struct {

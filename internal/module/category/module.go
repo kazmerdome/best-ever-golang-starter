@@ -1,6 +1,6 @@
 package category
 
-import "gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
+import "github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
 
 //go:generate make name=CategoryService mock
 //go:generate make name=CategoryRepository mock

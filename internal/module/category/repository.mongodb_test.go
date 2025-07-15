@@ -8,10 +8,10 @@ import (
 	faker "github.com/brianvoe/gofakeit/v6"
 	"github.com/google/uuid"
 	"github.com/gosimple/slug"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/integration/mtest"
 )

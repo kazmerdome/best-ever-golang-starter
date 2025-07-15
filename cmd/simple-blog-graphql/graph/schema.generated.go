@@ -15,11 +15,11 @@ import (
 	"github.com/99designs/gqlgen/graphql/introspection"
 	"github.com/99designs/gqlgen/plugin/federation/fedruntime"
 	"github.com/google/uuid"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/post"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar"
 	"github.com/vektah/gqlparser/v2/ast"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar"
 )
 
 // region    ************************** generated!.gotpl **************************

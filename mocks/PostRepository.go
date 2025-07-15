@@ -5,8 +5,8 @@ package mocks
 import (
 	context "context"
 
+	post "github.com/kazmerdome/best-ever-golang-starter/internal/module/post"
 	mock "github.com/stretchr/testify/mock"
-	post "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
 
 	uuid "github.com/google/uuid"
 )

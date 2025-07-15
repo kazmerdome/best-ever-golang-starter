@@ -3,9 +3,9 @@ package category_test
 import (
 	"testing"
 
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"github.com/kazmerdome/best-ever-golang-starter/mocks"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/mocks"
 )
 
 type moduleFixture struct {

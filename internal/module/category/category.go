@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
 )
 
 // Interface

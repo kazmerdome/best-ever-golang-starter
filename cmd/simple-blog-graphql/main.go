@@ -6,15 +6,15 @@ import (
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
+	"github.com/kazmerdome/best-ever-golang-starter/cmd/simple-blog-graphql/graph"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
+	db "github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/actor/server"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/post"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/config"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/logger"
 	"github.com/rs/zerolog/log"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/cmd/simple-blog-graphql/graph"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
-	db "gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/server"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/config"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/logger"
 )
 
 func main() {

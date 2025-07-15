@@ -1,7 +1,7 @@
 package mongodb
 
 import (
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

@@ -5,10 +5,10 @@ import (
 	"os"
 	"testing"
 
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/logger"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/logger"
 )
 
 func TestLogger(t *testing.T) {

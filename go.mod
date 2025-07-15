@@ -1,4 +1,4 @@
-module gitlab.com/kazmerdome/best-ever-golang-starter
+module github.com/kazmerdome/best-ever-golang-starter
 
 go 1.22
 

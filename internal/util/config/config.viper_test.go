@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/config"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/config"
 )
 
 func TestGetConfig(t *testing.T) {

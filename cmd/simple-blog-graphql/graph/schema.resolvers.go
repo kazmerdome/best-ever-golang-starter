@@ -9,8 +9,8 @@ import (
 	"fmt"
 
 	"github.com/google/uuid"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/post"
 )
 
 // CreateCategory is the resolver for the createCategory field.

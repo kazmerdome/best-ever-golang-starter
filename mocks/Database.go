@@ -8,7 +8,7 @@ import (
 	mock "github.com/stretchr/testify/mock"
 	mongo "go.mongodb.org/mongo-driver/mongo"
 
-	mongodb "gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
+	mongodb "github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
 
 	options "go.mongodb.org/mongo-driver/mongo/options"
 )

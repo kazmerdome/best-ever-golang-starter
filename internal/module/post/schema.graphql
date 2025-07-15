@@ -1,6 +1,6 @@
 # Models (types) & Enums
 # 
-type Post @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.Post") {
+type Post @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.Post") {
   id: Uuid!
   title: String!
   slug: String!
@@ -11,7 +11,7 @@ type Post @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/intern
   updated_at: Time!
 }
 
-enum PostStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.PostStatus") {
+enum PostStatusEnum @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.PostStatus") {
   ACTIVE
   PENDING
   ARCHIVED
@@ -19,7 +19,7 @@ enum PostStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-star
 
 # Dto (inputs)
 # 
-input CreatePostDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.CreateDto") {
+input CreatePostDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.CreateDto") {
   title: String!
   slug: String
   status: PostStatusEnum!
@@ -27,7 +27,7 @@ input CreatePostDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-star
   content: String
 }
 
-input WherePostsDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.WhereDto") {
+input WherePostsDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.WhereDto") {
   title: StringFilter
   slug: StringFilter
   category: UuidFilter
@@ -36,7 +36,7 @@ input WherePostsDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-star
   pagination: PaginationFilter
 }
 
-input UpdatePostDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.UpdateDto") {
+input UpdatePostDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.UpdateDto") {
   title: String
   slug: String
   category: Uuid

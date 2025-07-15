@@ -1,14 +1,14 @@
 package post
 
 import (
-	db "gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql"
-	postQuerier "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier"
+	db "github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql"
+	postQuerier "github.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier"
 )
 
 //go:generate make name=PostService mock
 //go:generate make name=PostRepository mock
 //go:generate make name=PostDataloader mock
-//go:generate make name=Querier structname=PostQuerier filename=PostQuerier.go srcpkg=gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier mock
+//go:generate make name=Querier structname=PostQuerier filename=PostQuerier.go srcpkg=github.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier mock
 
 type postModule struct {
 	service PostService
