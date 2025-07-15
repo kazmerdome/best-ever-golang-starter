@@ -46,187 +46,358 @@ type QueryResolver interface {
 
 // region    ***************************** args.gotpl *****************************
 
-func (ec *executionContext) field_Mutation_createCategory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_createCategory_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
 	var err error
-	args := map[string]interface{}{}
-	var arg0 category.CreateDto
-	if tmp, ok := rawArgs["data"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-		arg0, err = ec.unmarshalNCreateCategoryDto2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCreateDto(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+	args := map[string]any{}
+	arg0, err := ec.field_Mutation_createCategory_argsData(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["data"] = arg0
 	return args, nil
 }
+func (ec *executionContext) field_Mutation_createCategory_argsData(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (category.CreateDto, error) {
+	if _, ok := rawArgs["data"]; !ok {
+		var zeroVal category.CreateDto
+		return zeroVal, nil
+	}
 
-func (ec *executionContext) field_Mutation_createPost_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 post.CreateDto
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
 	if tmp, ok := rawArgs["data"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-		arg0, err = ec.unmarshalNCreatePostDto2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐCreateDto(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+		return ec.unmarshalNCreateCategoryDto2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCreateDto(ctx, tmp)
+	}
+
+	var zeroVal category.CreateDto
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Mutation_createPost_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := ec.field_Mutation_createPost_argsData(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["data"] = arg0
 	return args, nil
 }
-
-func (ec *executionContext) field_Mutation_deleteCategory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 uuid.UUID
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+func (ec *executionContext) field_Mutation_createPost_argsData(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (post.CreateDto, error) {
+	if _, ok := rawArgs["data"]; !ok {
+		var zeroVal post.CreateDto
+		return zeroVal, nil
 	}
-	args["id"] = arg0
-	return args, nil
-}
 
-func (ec *executionContext) field_Mutation_deletePost_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 uuid.UUID
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_updateCategory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 uuid.UUID
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 category.UpdateDto
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
 	if tmp, ok := rawArgs["data"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-		arg1, err = ec.unmarshalNUpdateCategoryDto2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐUpdateDto(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+		return ec.unmarshalNCreatePostDto2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐCreateDto(ctx, tmp)
+	}
+
+	var zeroVal post.CreateDto
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Mutation_deleteCategory_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := ec.field_Mutation_deleteCategory_argsID(ctx, rawArgs)
+	if err != nil {
+		return nil, err
+	}
+	args["id"] = arg0
+	return args, nil
+}
+func (ec *executionContext) field_Mutation_deleteCategory_argsID(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (uuid.UUID, error) {
+	if _, ok := rawArgs["id"]; !ok {
+		var zeroVal uuid.UUID
+		return zeroVal, nil
+	}
+
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+	if tmp, ok := rawArgs["id"]; ok {
+		return ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
+	}
+
+	var zeroVal uuid.UUID
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Mutation_deletePost_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := ec.field_Mutation_deletePost_argsID(ctx, rawArgs)
+	if err != nil {
+		return nil, err
+	}
+	args["id"] = arg0
+	return args, nil
+}
+func (ec *executionContext) field_Mutation_deletePost_argsID(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (uuid.UUID, error) {
+	if _, ok := rawArgs["id"]; !ok {
+		var zeroVal uuid.UUID
+		return zeroVal, nil
+	}
+
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+	if tmp, ok := rawArgs["id"]; ok {
+		return ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
+	}
+
+	var zeroVal uuid.UUID
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Mutation_updateCategory_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := ec.field_Mutation_updateCategory_argsID(ctx, rawArgs)
+	if err != nil {
+		return nil, err
+	}
+	args["id"] = arg0
+	arg1, err := ec.field_Mutation_updateCategory_argsData(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["data"] = arg1
 	return args, nil
 }
+func (ec *executionContext) field_Mutation_updateCategory_argsID(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (uuid.UUID, error) {
+	if _, ok := rawArgs["id"]; !ok {
+		var zeroVal uuid.UUID
+		return zeroVal, nil
+	}
 
-func (ec *executionContext) field_Mutation_updatePost_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 uuid.UUID
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
 	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+		return ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
+	}
+
+	var zeroVal uuid.UUID
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Mutation_updateCategory_argsData(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (category.UpdateDto, error) {
+	if _, ok := rawArgs["data"]; !ok {
+		var zeroVal category.UpdateDto
+		return zeroVal, nil
+	}
+
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+	if tmp, ok := rawArgs["data"]; ok {
+		return ec.unmarshalNUpdateCategoryDto2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐUpdateDto(ctx, tmp)
+	}
+
+	var zeroVal category.UpdateDto
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Mutation_updatePost_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := ec.field_Mutation_updatePost_argsID(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["id"] = arg0
-	var arg1 post.UpdateDto
-	if tmp, ok := rawArgs["data"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-		arg1, err = ec.unmarshalNUpdatePostDto2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐUpdateDto(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+	arg1, err := ec.field_Mutation_updatePost_argsData(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["data"] = arg1
 	return args, nil
 }
+func (ec *executionContext) field_Mutation_updatePost_argsID(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (uuid.UUID, error) {
+	if _, ok := rawArgs["id"]; !ok {
+		var zeroVal uuid.UUID
+		return zeroVal, nil
+	}
 
-func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+	if tmp, ok := rawArgs["id"]; ok {
+		return ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
+	}
+
+	var zeroVal uuid.UUID
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Mutation_updatePost_argsData(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (post.UpdateDto, error) {
+	if _, ok := rawArgs["data"]; !ok {
+		var zeroVal post.UpdateDto
+		return zeroVal, nil
+	}
+
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+	if tmp, ok := rawArgs["data"]; ok {
+		return ec.unmarshalNUpdatePostDto2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐUpdateDto(ctx, tmp)
+	}
+
+	var zeroVal post.UpdateDto
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
 	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["name"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+	args := map[string]any{}
+	arg0, err := ec.field_Query___type_argsName(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["name"] = arg0
 	return args, nil
 }
+func (ec *executionContext) field_Query___type_argsName(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (string, error) {
+	if _, ok := rawArgs["name"]; !ok {
+		var zeroVal string
+		return zeroVal, nil
+	}
 
-func (ec *executionContext) field_Query_getCategory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+	if tmp, ok := rawArgs["name"]; ok {
+		return ec.unmarshalNString2string(ctx, tmp)
+	}
+
+	var zeroVal string
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Query_getCategory_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
 	var err error
-	args := map[string]interface{}{}
-	var arg0 uuid.UUID
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+	args := map[string]any{}
+	arg0, err := ec.field_Query_getCategory_argsID(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["id"] = arg0
 	return args, nil
 }
+func (ec *executionContext) field_Query_getCategory_argsID(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (uuid.UUID, error) {
+	if _, ok := rawArgs["id"]; !ok {
+		var zeroVal uuid.UUID
+		return zeroVal, nil
+	}
 
-func (ec *executionContext) field_Query_getPost_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 uuid.UUID
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
 	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+		return ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
+	}
+
+	var zeroVal uuid.UUID
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Query_getPost_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := ec.field_Query_getPost_argsID(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["id"] = arg0
 	return args, nil
 }
+func (ec *executionContext) field_Query_getPost_argsID(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (uuid.UUID, error) {
+	if _, ok := rawArgs["id"]; !ok {
+		var zeroVal uuid.UUID
+		return zeroVal, nil
+	}
 
-func (ec *executionContext) field_Query_listCategories_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+	if tmp, ok := rawArgs["id"]; ok {
+		return ec.unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, tmp)
+	}
+
+	var zeroVal uuid.UUID
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Query_listCategories_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
 	var err error
-	args := map[string]interface{}{}
-	var arg0 *category.WhereDto
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalOWhereCategoriesDto2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐWhereDto(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+	args := map[string]any{}
+	arg0, err := ec.field_Query_listCategories_argsWhere(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["where"] = arg0
 	return args, nil
 }
+func (ec *executionContext) field_Query_listCategories_argsWhere(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (*category.WhereDto, error) {
+	if _, ok := rawArgs["where"]; !ok {
+		var zeroVal *category.WhereDto
+		return zeroVal, nil
+	}
 
-func (ec *executionContext) field_Query_listPosts_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *post.WhereDto
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
 	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalOWherePostsDto2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐWhereDto(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
+		return ec.unmarshalOWhereCategoriesDto2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐWhereDto(ctx, tmp)
+	}
+
+	var zeroVal *category.WhereDto
+	return zeroVal, nil
+}
+
+func (ec *executionContext) field_Query_listPosts_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := ec.field_Query_listPosts_argsWhere(ctx, rawArgs)
+	if err != nil {
+		return nil, err
 	}
 	args["where"] = arg0
 	return args, nil
+}
+func (ec *executionContext) field_Query_listPosts_argsWhere(
+	ctx context.Context,
+	rawArgs map[string]any,
+) (*post.WhereDto, error) {
+	if _, ok := rawArgs["where"]; !ok {
+		var zeroVal *post.WhereDto
+		return zeroVal, nil
+	}
+
+	ctx = graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+	if tmp, ok := rawArgs["where"]; ok {
+		return ec.unmarshalOWherePostsDto2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐWhereDto(ctx, tmp)
+	}
+
+	var zeroVal *post.WhereDto
+	return zeroVal, nil
 }
 
 // endregion ***************************** args.gotpl *****************************
@@ -249,7 +420,7 @@ func (ec *executionContext) _Category_id(ctx context.Context, field graphql.Coll
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Id, nil
 	})
@@ -268,7 +439,7 @@ func (ec *executionContext) _Category_id(ctx context.Context, field graphql.Coll
 	return ec.marshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Category_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Category_id(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Category",
 		Field:      field,
@@ -293,7 +464,7 @@ func (ec *executionContext) _Category_name(ctx context.Context, field graphql.Co
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Name, nil
 	})
@@ -312,7 +483,7 @@ func (ec *executionContext) _Category_name(ctx context.Context, field graphql.Co
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Category_name(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Category_name(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Category",
 		Field:      field,
@@ -337,7 +508,7 @@ func (ec *executionContext) _Category_slug(ctx context.Context, field graphql.Co
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Slug, nil
 	})
@@ -353,7 +524,7 @@ func (ec *executionContext) _Category_slug(ctx context.Context, field graphql.Co
 	return ec.marshalOString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Category_slug(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Category_slug(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Category",
 		Field:      field,
@@ -378,7 +549,7 @@ func (ec *executionContext) _Category_status(ctx context.Context, field graphql.
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Status, nil
 	})
@@ -394,10 +565,10 @@ func (ec *executionContext) _Category_status(ctx context.Context, field graphql.
 	}
 	res := resTmp.(category.CategoryStatus)
 	fc.Result = res
-	return ec.marshalNCategoryStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx, field.Selections, res)
+	return ec.marshalNCategoryStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Category_status(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Category_status(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Category",
 		Field:      field,
@@ -422,7 +593,7 @@ func (ec *executionContext) _Category_created_at(ctx context.Context, field grap
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.CreatedAt, nil
 	})
@@ -441,7 +612,7 @@ func (ec *executionContext) _Category_created_at(ctx context.Context, field grap
 	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Category_created_at(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Category_created_at(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Category",
 		Field:      field,
@@ -466,7 +637,7 @@ func (ec *executionContext) _Category_updated_at(ctx context.Context, field grap
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.UpdatedAt, nil
 	})
@@ -485,7 +656,7 @@ func (ec *executionContext) _Category_updated_at(ctx context.Context, field grap
 	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Category_updated_at(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Category_updated_at(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Category",
 		Field:      field,
@@ -510,7 +681,7 @@ func (ec *executionContext) _Mutation_createCategory(ctx context.Context, field 
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().CreateCategory(rctx, fc.Args["data"].(category.CreateDto))
 	})
@@ -523,7 +694,7 @@ func (ec *executionContext) _Mutation_createCategory(ctx context.Context, field 
 	}
 	res := resTmp.(*category.Category)
 	fc.Result = res
-	return ec.marshalOCategory2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, field.Selections, res)
+	return ec.marshalOCategory2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createCategory(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -576,7 +747,7 @@ func (ec *executionContext) _Mutation_updateCategory(ctx context.Context, field 
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateCategory(rctx, fc.Args["id"].(uuid.UUID), fc.Args["data"].(category.UpdateDto))
 	})
@@ -589,7 +760,7 @@ func (ec *executionContext) _Mutation_updateCategory(ctx context.Context, field 
 	}
 	res := resTmp.(*category.Category)
 	fc.Result = res
-	return ec.marshalOCategory2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, field.Selections, res)
+	return ec.marshalOCategory2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_updateCategory(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -642,7 +813,7 @@ func (ec *executionContext) _Mutation_deleteCategory(ctx context.Context, field 
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().DeleteCategory(rctx, fc.Args["id"].(uuid.UUID))
 	})
@@ -694,7 +865,7 @@ func (ec *executionContext) _Mutation_createPost(ctx context.Context, field grap
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().CreatePost(rctx, fc.Args["data"].(post.CreateDto))
 	})
@@ -707,7 +878,7 @@ func (ec *executionContext) _Mutation_createPost(ctx context.Context, field grap
 	}
 	res := resTmp.(*post.Post)
 	fc.Result = res
-	return ec.marshalOPost2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx, field.Selections, res)
+	return ec.marshalOPost2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createPost(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -764,7 +935,7 @@ func (ec *executionContext) _Mutation_updatePost(ctx context.Context, field grap
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdatePost(rctx, fc.Args["id"].(uuid.UUID), fc.Args["data"].(post.UpdateDto))
 	})
@@ -777,7 +948,7 @@ func (ec *executionContext) _Mutation_updatePost(ctx context.Context, field grap
 	}
 	res := resTmp.(*post.Post)
 	fc.Result = res
-	return ec.marshalOPost2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx, field.Selections, res)
+	return ec.marshalOPost2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_updatePost(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -834,7 +1005,7 @@ func (ec *executionContext) _Mutation_deletePost(ctx context.Context, field grap
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().DeletePost(rctx, fc.Args["id"].(uuid.UUID))
 	})
@@ -886,7 +1057,7 @@ func (ec *executionContext) _Post_id(ctx context.Context, field graphql.Collecte
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Id, nil
 	})
@@ -905,7 +1076,7 @@ func (ec *executionContext) _Post_id(ctx context.Context, field graphql.Collecte
 	return ec.marshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Post_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Post_id(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Post",
 		Field:      field,
@@ -930,7 +1101,7 @@ func (ec *executionContext) _Post_title(ctx context.Context, field graphql.Colle
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Title, nil
 	})
@@ -949,7 +1120,7 @@ func (ec *executionContext) _Post_title(ctx context.Context, field graphql.Colle
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Post_title(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Post_title(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Post",
 		Field:      field,
@@ -974,7 +1145,7 @@ func (ec *executionContext) _Post_slug(ctx context.Context, field graphql.Collec
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Slug, nil
 	})
@@ -993,7 +1164,7 @@ func (ec *executionContext) _Post_slug(ctx context.Context, field graphql.Collec
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Post_slug(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Post_slug(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Post",
 		Field:      field,
@@ -1018,7 +1189,7 @@ func (ec *executionContext) _Post_category(ctx context.Context, field graphql.Co
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Post().Category(rctx, obj)
 	})
@@ -1034,10 +1205,10 @@ func (ec *executionContext) _Post_category(ctx context.Context, field graphql.Co
 	}
 	res := resTmp.(*category.Category)
 	fc.Result = res
-	return ec.marshalNCategory2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, field.Selections, res)
+	return ec.marshalNCategory2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Post_category(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Post_category(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Post",
 		Field:      field,
@@ -1076,7 +1247,7 @@ func (ec *executionContext) _Post_status(ctx context.Context, field graphql.Coll
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Status, nil
 	})
@@ -1092,10 +1263,10 @@ func (ec *executionContext) _Post_status(ctx context.Context, field graphql.Coll
 	}
 	res := resTmp.(post.PostStatus)
 	fc.Result = res
-	return ec.marshalNPostStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx, field.Selections, res)
+	return ec.marshalNPostStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Post_status(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Post_status(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Post",
 		Field:      field,
@@ -1120,7 +1291,7 @@ func (ec *executionContext) _Post_content(ctx context.Context, field graphql.Col
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Content, nil
 	})
@@ -1136,7 +1307,7 @@ func (ec *executionContext) _Post_content(ctx context.Context, field graphql.Col
 	return ec.marshalOString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Post_content(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Post_content(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Post",
 		Field:      field,
@@ -1161,7 +1332,7 @@ func (ec *executionContext) _Post_created_at(ctx context.Context, field graphql.
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.CreatedAt, nil
 	})
@@ -1180,7 +1351,7 @@ func (ec *executionContext) _Post_created_at(ctx context.Context, field graphql.
 	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Post_created_at(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Post_created_at(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Post",
 		Field:      field,
@@ -1205,7 +1376,7 @@ func (ec *executionContext) _Post_updated_at(ctx context.Context, field graphql.
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.UpdatedAt, nil
 	})
@@ -1224,7 +1395,7 @@ func (ec *executionContext) _Post_updated_at(ctx context.Context, field graphql.
 	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Post_updated_at(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Post_updated_at(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Post",
 		Field:      field,
@@ -1249,7 +1420,7 @@ func (ec *executionContext) _Query_getCategory(ctx context.Context, field graphq
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().GetCategory(rctx, fc.Args["id"].(uuid.UUID))
 	})
@@ -1262,7 +1433,7 @@ func (ec *executionContext) _Query_getCategory(ctx context.Context, field graphq
 	}
 	res := resTmp.(*category.Category)
 	fc.Result = res
-	return ec.marshalOCategory2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, field.Selections, res)
+	return ec.marshalOCategory2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_getCategory(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1315,7 +1486,7 @@ func (ec *executionContext) _Query_listCategories(ctx context.Context, field gra
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().ListCategories(rctx, fc.Args["where"].(*category.WhereDto))
 	})
@@ -1331,7 +1502,7 @@ func (ec *executionContext) _Query_listCategories(ctx context.Context, field gra
 	}
 	res := resTmp.([]category.Category)
 	fc.Result = res
-	return ec.marshalNCategory2ᚕgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryᚄ(ctx, field.Selections, res)
+	return ec.marshalNCategory2ᚕgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_listCategories(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1384,7 +1555,7 @@ func (ec *executionContext) _Query_getPost(ctx context.Context, field graphql.Co
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().GetPost(rctx, fc.Args["id"].(uuid.UUID))
 	})
@@ -1397,7 +1568,7 @@ func (ec *executionContext) _Query_getPost(ctx context.Context, field graphql.Co
 	}
 	res := resTmp.(*post.Post)
 	fc.Result = res
-	return ec.marshalOPost2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx, field.Selections, res)
+	return ec.marshalOPost2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_getPost(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1454,7 +1625,7 @@ func (ec *executionContext) _Query_listPosts(ctx context.Context, field graphql.
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().ListPosts(rctx, fc.Args["where"].(*post.WhereDto))
 	})
@@ -1470,7 +1641,7 @@ func (ec *executionContext) _Query_listPosts(ctx context.Context, field graphql.
 	}
 	res := resTmp.([]post.Post)
 	fc.Result = res
-	return ec.marshalNPost2ᚕgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostᚄ(ctx, field.Selections, res)
+	return ec.marshalNPost2ᚕgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_listPosts(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1527,7 +1698,7 @@ func (ec *executionContext) _Query__service(ctx context.Context, field graphql.C
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.__resolve__service(ctx)
 	})
@@ -1546,7 +1717,7 @@ func (ec *executionContext) _Query__service(ctx context.Context, field graphql.C
 	return ec.marshalN_Service2githubᚗcomᚋ99designsᚋgqlgenᚋpluginᚋfederationᚋfedruntimeᚐService(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Query__service(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Query__service(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Query",
 		Field:      field,
@@ -1575,7 +1746,7 @@ func (ec *executionContext) _Query___type(ctx context.Context, field graphql.Col
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.introspectType(fc.Args["name"].(string))
 	})
@@ -1605,6 +1776,8 @@ func (ec *executionContext) fieldContext_Query___type(ctx context.Context, field
 				return ec.fieldContext___Type_name(ctx, field)
 			case "description":
 				return ec.fieldContext___Type_description(ctx, field)
+			case "specifiedByURL":
+				return ec.fieldContext___Type_specifiedByURL(ctx, field)
 			case "fields":
 				return ec.fieldContext___Type_fields(ctx, field)
 			case "interfaces":
@@ -1617,8 +1790,8 @@ func (ec *executionContext) fieldContext_Query___type(ctx context.Context, field
 				return ec.fieldContext___Type_inputFields(ctx, field)
 			case "ofType":
 				return ec.fieldContext___Type_ofType(ctx, field)
-			case "specifiedByURL":
-				return ec.fieldContext___Type_specifiedByURL(ctx, field)
+			case "isOneOf":
+				return ec.fieldContext___Type_isOneOf(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type __Type", field.Name)
 		},
@@ -1649,7 +1822,7 @@ func (ec *executionContext) _Query___schema(ctx context.Context, field graphql.C
 			ret = graphql.Null
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (any, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.introspectSchema()
 	})
@@ -1665,7 +1838,7 @@ func (ec *executionContext) _Query___schema(ctx context.Context, field graphql.C
 	return ec.marshalO__Schema2ᚖgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐSchema(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Query___schema(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Query___schema(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Query",
 		Field:      field,
@@ -1696,10 +1869,10 @@ func (ec *executionContext) fieldContext_Query___schema(ctx context.Context, fie
 
 // region    **************************** input.gotpl *****************************
 
-func (ec *executionContext) unmarshalInputCreateCategoryDto(ctx context.Context, obj interface{}) (category.CreateDto, error) {
+func (ec *executionContext) unmarshalInputCreateCategoryDto(ctx context.Context, obj any) (category.CreateDto, error) {
 	var it category.CreateDto
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -1726,7 +1899,7 @@ func (ec *executionContext) unmarshalInputCreateCategoryDto(ctx context.Context,
 			it.Slug = data
 		case "status":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			data, err := ec.unmarshalOCategoryStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx, v)
+			data, err := ec.unmarshalOCategoryStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -1737,10 +1910,10 @@ func (ec *executionContext) unmarshalInputCreateCategoryDto(ctx context.Context,
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputCreatePostDto(ctx context.Context, obj interface{}) (post.CreateDto, error) {
+func (ec *executionContext) unmarshalInputCreatePostDto(ctx context.Context, obj any) (post.CreateDto, error) {
 	var it post.CreateDto
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -1767,7 +1940,7 @@ func (ec *executionContext) unmarshalInputCreatePostDto(ctx context.Context, obj
 			it.Slug = data
 		case "status":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			data, err := ec.unmarshalNPostStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx, v)
+			data, err := ec.unmarshalNPostStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -1792,10 +1965,10 @@ func (ec *executionContext) unmarshalInputCreatePostDto(ctx context.Context, obj
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputDateFilter(ctx context.Context, obj interface{}) (filter.DateFilter, error) {
+func (ec *executionContext) unmarshalInputDateFilter(ctx context.Context, obj any) (filter.DateFilter, error) {
 	var it filter.DateFilter
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -1847,10 +2020,10 @@ func (ec *executionContext) unmarshalInputDateFilter(ctx context.Context, obj in
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloat64Filter(ctx context.Context, obj interface{}) (filter.Float64Filter, error) {
+func (ec *executionContext) unmarshalInputFloat64Filter(ctx context.Context, obj any) (filter.Float64Filter, error) {
 	var it filter.Float64Filter
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -1902,10 +2075,10 @@ func (ec *executionContext) unmarshalInputFloat64Filter(ctx context.Context, obj
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputIntFilter(ctx context.Context, obj interface{}) (filter.IntFilter, error) {
+func (ec *executionContext) unmarshalInputIntFilter(ctx context.Context, obj any) (filter.IntFilter, error) {
 	var it filter.IntFilter
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -1957,10 +2130,10 @@ func (ec *executionContext) unmarshalInputIntFilter(ctx context.Context, obj int
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputPaginationFilter(ctx context.Context, obj interface{}) (filter.PaginationFilter, error) {
+func (ec *executionContext) unmarshalInputPaginationFilter(ctx context.Context, obj any) (filter.PaginationFilter, error) {
 	var it filter.PaginationFilter
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -1991,10 +2164,10 @@ func (ec *executionContext) unmarshalInputPaginationFilter(ctx context.Context, 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputSortFilter(ctx context.Context, obj interface{}) (filter.SortFilter, error) {
+func (ec *executionContext) unmarshalInputSortFilter(ctx context.Context, obj any) (filter.SortFilter, error) {
 	var it filter.SortFilter
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -2014,7 +2187,7 @@ func (ec *executionContext) unmarshalInputSortFilter(ctx context.Context, obj in
 			it.SortBy = data
 		case "sortOrder":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sortOrder"))
-			data, err := ec.unmarshalOSortOrder2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortOrder(ctx, v)
+			data, err := ec.unmarshalOSortOrder2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortOrder(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -2025,10 +2198,10 @@ func (ec *executionContext) unmarshalInputSortFilter(ctx context.Context, obj in
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputStringFilter(ctx context.Context, obj interface{}) (filter.StringFilter, error) {
+func (ec *executionContext) unmarshalInputStringFilter(ctx context.Context, obj any) (filter.StringFilter, error) {
 	var it filter.StringFilter
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -2059,10 +2232,10 @@ func (ec *executionContext) unmarshalInputStringFilter(ctx context.Context, obj 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputUpdateCategoryDto(ctx context.Context, obj interface{}) (category.UpdateDto, error) {
+func (ec *executionContext) unmarshalInputUpdateCategoryDto(ctx context.Context, obj any) (category.UpdateDto, error) {
 	var it category.UpdateDto
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -2089,7 +2262,7 @@ func (ec *executionContext) unmarshalInputUpdateCategoryDto(ctx context.Context,
 			it.Slug = data
 		case "status":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			data, err := ec.unmarshalOCategoryStatusEnum2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx, v)
+			data, err := ec.unmarshalOCategoryStatusEnum2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -2100,10 +2273,10 @@ func (ec *executionContext) unmarshalInputUpdateCategoryDto(ctx context.Context,
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputUpdatePostDto(ctx context.Context, obj interface{}) (post.UpdateDto, error) {
+func (ec *executionContext) unmarshalInputUpdatePostDto(ctx context.Context, obj any) (post.UpdateDto, error) {
 	var it post.UpdateDto
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -2137,7 +2310,7 @@ func (ec *executionContext) unmarshalInputUpdatePostDto(ctx context.Context, obj
 			it.Category = data
 		case "status":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			data, err := ec.unmarshalOPostStatusEnum2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx, v)
+			data, err := ec.unmarshalOPostStatusEnum2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -2155,10 +2328,10 @@ func (ec *executionContext) unmarshalInputUpdatePostDto(ctx context.Context, obj
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputUuidFilter(ctx context.Context, obj interface{}) (filter.UuidFilter, error) {
+func (ec *executionContext) unmarshalInputUuidFilter(ctx context.Context, obj any) (filter.UuidFilter, error) {
 	var it filter.UuidFilter
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -2189,10 +2362,10 @@ func (ec *executionContext) unmarshalInputUuidFilter(ctx context.Context, obj in
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputWhereCategoriesDto(ctx context.Context, obj interface{}) (category.WhereDto, error) {
+func (ec *executionContext) unmarshalInputWhereCategoriesDto(ctx context.Context, obj any) (category.WhereDto, error) {
 	var it category.WhereDto
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -2205,35 +2378,35 @@ func (ec *executionContext) unmarshalInputWhereCategoriesDto(ctx context.Context
 		switch k {
 		case "name":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
-			data, err := ec.unmarshalOStringFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx, v)
+			data, err := ec.unmarshalOStringFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Name = data
 		case "slug":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("slug"))
-			data, err := ec.unmarshalOStringFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx, v)
+			data, err := ec.unmarshalOStringFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Slug = data
 		case "status":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			data, err := ec.unmarshalOCategoryStatusEnum2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx, v)
+			data, err := ec.unmarshalOCategoryStatusEnum2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Status = data
 		case "sort":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sort"))
-			data, err := ec.unmarshalOSortFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortFilter(ctx, v)
+			data, err := ec.unmarshalOSortFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Sort = data
 		case "pagination":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pagination"))
-			data, err := ec.unmarshalOPaginationFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐPaginationFilter(ctx, v)
+			data, err := ec.unmarshalOPaginationFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐPaginationFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -2244,10 +2417,10 @@ func (ec *executionContext) unmarshalInputWhereCategoriesDto(ctx context.Context
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputWherePostsDto(ctx context.Context, obj interface{}) (post.WhereDto, error) {
+func (ec *executionContext) unmarshalInputWherePostsDto(ctx context.Context, obj any) (post.WhereDto, error) {
 	var it post.WhereDto
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
+	asMap := map[string]any{}
+	for k, v := range obj.(map[string]any) {
 		asMap[k] = v
 	}
 
@@ -2260,42 +2433,42 @@ func (ec *executionContext) unmarshalInputWherePostsDto(ctx context.Context, obj
 		switch k {
 		case "title":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("title"))
-			data, err := ec.unmarshalOStringFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx, v)
+			data, err := ec.unmarshalOStringFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Title = data
 		case "slug":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("slug"))
-			data, err := ec.unmarshalOStringFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx, v)
+			data, err := ec.unmarshalOStringFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Slug = data
 		case "category":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category"))
-			data, err := ec.unmarshalOUuidFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐUuidFilter(ctx, v)
+			data, err := ec.unmarshalOUuidFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐUuidFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Category = data
 		case "status":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			data, err := ec.unmarshalOPostStatusEnum2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx, v)
+			data, err := ec.unmarshalOPostStatusEnum2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Status = data
 		case "sort":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sort"))
-			data, err := ec.unmarshalOSortFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortFilter(ctx, v)
+			data, err := ec.unmarshalOSortFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
 			it.Sort = data
 		case "pagination":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pagination"))
-			data, err := ec.unmarshalOPaginationFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐPaginationFilter(ctx, v)
+			data, err := ec.unmarshalOPaginationFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐPaginationFilter(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -2565,7 +2738,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		case "getCategory":
 			field := field
 
-			innerFunc := func(ctx context.Context, fs *graphql.FieldSet) (res graphql.Marshaler) {
+			innerFunc := func(ctx context.Context, _ *graphql.FieldSet) (res graphql.Marshaler) {
 				defer func() {
 					if r := recover(); r != nil {
 						ec.Error(ctx, ec.Recover(ctx, r))
@@ -2606,7 +2779,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		case "getPost":
 			field := field
 
-			innerFunc := func(ctx context.Context, fs *graphql.FieldSet) (res graphql.Marshaler) {
+			innerFunc := func(ctx context.Context, _ *graphql.FieldSet) (res graphql.Marshaler) {
 				defer func() {
 					if r := recover(); r != nil {
 						ec.Error(ctx, ec.Recover(ctx, r))
@@ -2701,11 +2874,11 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) marshalNCategory2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx context.Context, sel ast.SelectionSet, v category.Category) graphql.Marshaler {
+func (ec *executionContext) marshalNCategory2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx context.Context, sel ast.SelectionSet, v category.Category) graphql.Marshaler {
 	return ec._Category(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNCategory2ᚕgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryᚄ(ctx context.Context, sel ast.SelectionSet, v []category.Category) graphql.Marshaler {
+func (ec *executionContext) marshalNCategory2ᚕgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryᚄ(ctx context.Context, sel ast.SelectionSet, v []category.Category) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -2729,7 +2902,7 @@ func (ec *executionContext) marshalNCategory2ᚕgitlabᚗcomᚋkazmerdomeᚋbest
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNCategory2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, sel, v[i])
+			ret[i] = ec.marshalNCategory2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -2749,7 +2922,7 @@ func (ec *executionContext) marshalNCategory2ᚕgitlabᚗcomᚋkazmerdomeᚋbest
 	return ret
 }
 
-func (ec *executionContext) marshalNCategory2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx context.Context, sel ast.SelectionSet, v *category.Category) graphql.Marshaler {
+func (ec *executionContext) marshalNCategory2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx context.Context, sel ast.SelectionSet, v *category.Category) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -2759,13 +2932,14 @@ func (ec *executionContext) marshalNCategory2ᚖgitlabᚗcomᚋkazmerdomeᚋbest
 	return ec._Category(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNCategoryStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, v interface{}) (category.CategoryStatus, error) {
+func (ec *executionContext) unmarshalNCategoryStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, v any) (category.CategoryStatus, error) {
 	tmp, err := graphql.UnmarshalString(v)
 	res := category.CategoryStatus(tmp)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNCategoryStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, sel ast.SelectionSet, v category.CategoryStatus) graphql.Marshaler {
+func (ec *executionContext) marshalNCategoryStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, sel ast.SelectionSet, v category.CategoryStatus) graphql.Marshaler {
+	_ = sel
 	res := graphql.MarshalString(string(v))
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
@@ -2775,21 +2949,21 @@ func (ec *executionContext) marshalNCategoryStatusEnum2gitlabᚗcomᚋkazmerdome
 	return res
 }
 
-func (ec *executionContext) unmarshalNCreateCategoryDto2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCreateDto(ctx context.Context, v interface{}) (category.CreateDto, error) {
+func (ec *executionContext) unmarshalNCreateCategoryDto2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCreateDto(ctx context.Context, v any) (category.CreateDto, error) {
 	res, err := ec.unmarshalInputCreateCategoryDto(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNCreatePostDto2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐCreateDto(ctx context.Context, v interface{}) (post.CreateDto, error) {
+func (ec *executionContext) unmarshalNCreatePostDto2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐCreateDto(ctx context.Context, v any) (post.CreateDto, error) {
 	res, err := ec.unmarshalInputCreatePostDto(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNPost2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx context.Context, sel ast.SelectionSet, v post.Post) graphql.Marshaler {
+func (ec *executionContext) marshalNPost2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx context.Context, sel ast.SelectionSet, v post.Post) graphql.Marshaler {
 	return ec._Post(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNPost2ᚕgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostᚄ(ctx context.Context, sel ast.SelectionSet, v []post.Post) graphql.Marshaler {
+func (ec *executionContext) marshalNPost2ᚕgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostᚄ(ctx context.Context, sel ast.SelectionSet, v []post.Post) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -2813,7 +2987,7 @@ func (ec *executionContext) marshalNPost2ᚕgitlabᚗcomᚋkazmerdomeᚋbestᚑe
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNPost2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx, sel, v[i])
+			ret[i] = ec.marshalNPost2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -2833,13 +3007,14 @@ func (ec *executionContext) marshalNPost2ᚕgitlabᚗcomᚋkazmerdomeᚋbestᚑe
 	return ret
 }
 
-func (ec *executionContext) unmarshalNPostStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx context.Context, v interface{}) (post.PostStatus, error) {
+func (ec *executionContext) unmarshalNPostStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx context.Context, v any) (post.PostStatus, error) {
 	tmp, err := graphql.UnmarshalString(v)
 	res := post.PostStatus(tmp)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNPostStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx context.Context, sel ast.SelectionSet, v post.PostStatus) graphql.Marshaler {
+func (ec *executionContext) marshalNPostStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx context.Context, sel ast.SelectionSet, v post.PostStatus) graphql.Marshaler {
+	_ = sel
 	res := graphql.MarshalString(string(v))
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
@@ -2849,12 +3024,13 @@ func (ec *executionContext) marshalNPostStatusEnum2gitlabᚗcomᚋkazmerdomeᚋb
 	return res
 }
 
-func (ec *executionContext) unmarshalNTime2timeᚐTime(ctx context.Context, v interface{}) (time.Time, error) {
+func (ec *executionContext) unmarshalNTime2timeᚐTime(ctx context.Context, v any) (time.Time, error) {
 	res, err := graphql.UnmarshalTime(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalNTime2timeᚐTime(ctx context.Context, sel ast.SelectionSet, v time.Time) graphql.Marshaler {
+	_ = sel
 	res := graphql.MarshalTime(v)
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
@@ -2864,22 +3040,23 @@ func (ec *executionContext) marshalNTime2timeᚐTime(ctx context.Context, sel as
 	return res
 }
 
-func (ec *executionContext) unmarshalNUpdateCategoryDto2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐUpdateDto(ctx context.Context, v interface{}) (category.UpdateDto, error) {
+func (ec *executionContext) unmarshalNUpdateCategoryDto2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐUpdateDto(ctx context.Context, v any) (category.UpdateDto, error) {
 	res, err := ec.unmarshalInputUpdateCategoryDto(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNUpdatePostDto2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐUpdateDto(ctx context.Context, v interface{}) (post.UpdateDto, error) {
+func (ec *executionContext) unmarshalNUpdatePostDto2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐUpdateDto(ctx context.Context, v any) (post.UpdateDto, error) {
 	res, err := ec.unmarshalInputUpdatePostDto(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx context.Context, v interface{}) (uuid.UUID, error) {
+func (ec *executionContext) unmarshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx context.Context, v any) (uuid.UUID, error) {
 	res, err := scalar.UnmarshalUuid(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx context.Context, sel ast.SelectionSet, v uuid.UUID) graphql.Marshaler {
+	_ = sel
 	res := scalar.MarshalUuid(v)
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
@@ -2889,25 +3066,27 @@ func (ec *executionContext) marshalNUuid2githubᚗcomᚋgoogleᚋuuidᚐUUID(ctx
 	return res
 }
 
-func (ec *executionContext) marshalOCategory2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx context.Context, sel ast.SelectionSet, v *category.Category) graphql.Marshaler {
+func (ec *executionContext) marshalOCategory2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategory(ctx context.Context, sel ast.SelectionSet, v *category.Category) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._Category(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOCategoryStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, v interface{}) (category.CategoryStatus, error) {
+func (ec *executionContext) unmarshalOCategoryStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, v any) (category.CategoryStatus, error) {
 	tmp, err := graphql.UnmarshalString(v)
 	res := category.CategoryStatus(tmp)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOCategoryStatusEnum2gitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, sel ast.SelectionSet, v category.CategoryStatus) graphql.Marshaler {
+func (ec *executionContext) marshalOCategoryStatusEnum2githubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, sel ast.SelectionSet, v category.CategoryStatus) graphql.Marshaler {
+	_ = sel
+	_ = ctx
 	res := graphql.MarshalString(string(v))
 	return res
 }
 
-func (ec *executionContext) unmarshalOCategoryStatusEnum2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, v interface{}) (*category.CategoryStatus, error) {
+func (ec *executionContext) unmarshalOCategoryStatusEnum2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, v any) (*category.CategoryStatus, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -2916,15 +3095,17 @@ func (ec *executionContext) unmarshalOCategoryStatusEnum2ᚖgitlabᚗcomᚋkazme
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOCategoryStatusEnum2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, sel ast.SelectionSet, v *category.CategoryStatus) graphql.Marshaler {
+func (ec *executionContext) marshalOCategoryStatusEnum2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐCategoryStatus(ctx context.Context, sel ast.SelectionSet, v *category.CategoryStatus) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
+	_ = sel
+	_ = ctx
 	res := graphql.MarshalString(string(*v))
 	return res
 }
 
-func (ec *executionContext) unmarshalOPaginationFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐPaginationFilter(ctx context.Context, v interface{}) (*filter.PaginationFilter, error) {
+func (ec *executionContext) unmarshalOPaginationFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐPaginationFilter(ctx context.Context, v any) (*filter.PaginationFilter, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -2932,14 +3113,14 @@ func (ec *executionContext) unmarshalOPaginationFilter2ᚖgitlabᚗcomᚋkazmerd
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOPost2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx context.Context, sel ast.SelectionSet, v *post.Post) graphql.Marshaler {
+func (ec *executionContext) marshalOPost2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPost(ctx context.Context, sel ast.SelectionSet, v *post.Post) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._Post(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOPostStatusEnum2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx context.Context, v interface{}) (*post.PostStatus, error) {
+func (ec *executionContext) unmarshalOPostStatusEnum2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx context.Context, v any) (*post.PostStatus, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -2948,15 +3129,17 @@ func (ec *executionContext) unmarshalOPostStatusEnum2ᚖgitlabᚗcomᚋkazmerdom
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOPostStatusEnum2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx context.Context, sel ast.SelectionSet, v *post.PostStatus) graphql.Marshaler {
+func (ec *executionContext) marshalOPostStatusEnum2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐPostStatus(ctx context.Context, sel ast.SelectionSet, v *post.PostStatus) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
+	_ = sel
+	_ = ctx
 	res := graphql.MarshalString(string(*v))
 	return res
 }
 
-func (ec *executionContext) unmarshalOSortFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortFilter(ctx context.Context, v interface{}) (*filter.SortFilter, error) {
+func (ec *executionContext) unmarshalOSortFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortFilter(ctx context.Context, v any) (*filter.SortFilter, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -2964,7 +3147,7 @@ func (ec *executionContext) unmarshalOSortFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOSortOrder2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortOrder(ctx context.Context, v interface{}) (*filter.SortOrder, error) {
+func (ec *executionContext) unmarshalOSortOrder2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortOrder(ctx context.Context, v any) (*filter.SortOrder, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -2973,15 +3156,17 @@ func (ec *executionContext) unmarshalOSortOrder2ᚖgitlabᚗcomᚋkazmerdomeᚋb
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOSortOrder2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortOrder(ctx context.Context, sel ast.SelectionSet, v *filter.SortOrder) graphql.Marshaler {
+func (ec *executionContext) marshalOSortOrder2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐSortOrder(ctx context.Context, sel ast.SelectionSet, v *filter.SortOrder) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
+	_ = sel
+	_ = ctx
 	res := graphql.MarshalString(string(*v))
 	return res
 }
 
-func (ec *executionContext) unmarshalOStringFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx context.Context, v interface{}) (*filter.StringFilter, error) {
+func (ec *executionContext) unmarshalOStringFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐStringFilter(ctx context.Context, v any) (*filter.StringFilter, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -2989,7 +3174,7 @@ func (ec *executionContext) unmarshalOStringFilter2ᚖgitlabᚗcomᚋkazmerdome�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOTime2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
+func (ec *executionContext) unmarshalOTime2ᚖtimeᚐTime(ctx context.Context, v any) (*time.Time, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -3001,18 +3186,18 @@ func (ec *executionContext) marshalOTime2ᚖtimeᚐTime(ctx context.Context, sel
 	if v == nil {
 		return graphql.Null
 	}
+	_ = sel
+	_ = ctx
 	res := graphql.MarshalTime(*v)
 	return res
 }
 
-func (ec *executionContext) unmarshalOUuid2ᚕgithubᚗcomᚋgoogleᚋuuidᚐUUIDᚄ(ctx context.Context, v interface{}) ([]uuid.UUID, error) {
+func (ec *executionContext) unmarshalOUuid2ᚕgithubᚗcomᚋgoogleᚋuuidᚐUUIDᚄ(ctx context.Context, v any) ([]uuid.UUID, error) {
 	if v == nil {
 		return nil, nil
 	}
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
+	var vSlice []any
+	vSlice = graphql.CoerceList(v)
 	var err error
 	res := make([]uuid.UUID, len(vSlice))
 	for i := range vSlice {
@@ -3043,7 +3228,7 @@ func (ec *executionContext) marshalOUuid2ᚕgithubᚗcomᚋgoogleᚋuuidᚐUUID�
 	return ret
 }
 
-func (ec *executionContext) unmarshalOUuid2ᚖgithubᚗcomᚋgoogleᚋuuidᚐUUID(ctx context.Context, v interface{}) (*uuid.UUID, error) {
+func (ec *executionContext) unmarshalOUuid2ᚖgithubᚗcomᚋgoogleᚋuuidᚐUUID(ctx context.Context, v any) (*uuid.UUID, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -3055,11 +3240,13 @@ func (ec *executionContext) marshalOUuid2ᚖgithubᚗcomᚋgoogleᚋuuidᚐUUID(
 	if v == nil {
 		return graphql.Null
 	}
+	_ = sel
+	_ = ctx
 	res := scalar.MarshalUuid(*v)
 	return res
 }
 
-func (ec *executionContext) unmarshalOUuidFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐUuidFilter(ctx context.Context, v interface{}) (*filter.UuidFilter, error) {
+func (ec *executionContext) unmarshalOUuidFilter2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋutilᚋfilterᚐUuidFilter(ctx context.Context, v any) (*filter.UuidFilter, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -3067,7 +3254,7 @@ func (ec *executionContext) unmarshalOUuidFilter2ᚖgitlabᚗcomᚋkazmerdomeᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOWhereCategoriesDto2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐWhereDto(ctx context.Context, v interface{}) (*category.WhereDto, error) {
+func (ec *executionContext) unmarshalOWhereCategoriesDto2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋcategoryᚐWhereDto(ctx context.Context, v any) (*category.WhereDto, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -3075,7 +3262,7 @@ func (ec *executionContext) unmarshalOWhereCategoriesDto2ᚖgitlabᚗcomᚋkazme
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOWherePostsDto2ᚖgitlabᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐWhereDto(ctx context.Context, v interface{}) (*post.WhereDto, error) {
+func (ec *executionContext) unmarshalOWherePostsDto2ᚖgithubᚗcomᚋkazmerdomeᚋbestᚑeverᚑgolangᚑstarterᚋinternalᚋmoduleᚋpostᚐWhereDto(ctx context.Context, v any) (*post.WhereDto, error) {
 	if v == nil {
 		return nil, nil
 	}

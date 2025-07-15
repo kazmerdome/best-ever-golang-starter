@@ -12,10 +12,18 @@ This kit can be helpful to you if you're looking for the following in your proje
 - 🧱 Domain-driven module system
 - 👉🏻 Simplicity with minimal abstractions on top of the language-layer
 - ♻️ Reusable modules
-- 💉 Dependency injection (ohh yes the fancy word of arguments...)
+- 💉 Dependency injection
 - 🎭 Mock-first testing approach
 - 🧐 Monorepository pattern
 
+<br/>
+
+> 🥳 **The project recently turned one year old**, and I want to say a huge thank you to everyone who has used it, given feedback, shared constructive criticism, or even left an unexpected star 🌟 — it all means a lot.
+
+> I have plenty of ideas for what to include next on top of the current technologies, but I'd also love to hear from you:  
+> **What would *you* like to see in it?** If you have any thoughts, feedback, questions, or suggestions — feel free to open an issue or PR, or reach out to me directly. I'm always happy to connect and improve this kit with your input. 🙏🏻
+
+<br/>
 
 ### Embracing the Diverse Approaches in Go Development
 
@@ -34,7 +42,7 @@ The starter kit aims to take a stance in favor of structuring, in a more constra
 In the example project, we're building a lightweight blog. The blog will be accessible via a GraphQL gateway in the form of a web server. The blog has two business entities: categories and posts. Each post can be assigned to a category. I've implemented CRUD operations for both domains as well as a data loader to assist with data population on the GraphQL side.
 
 - 🏄‍♂️ Graphql (GqlGen)
-- 🦖 Mongodb (mongo go river)
+- 🦖 Mongodb (mongo go driver)
 - 👩🏼‍🔧 Postgres (sqlc)
 - 💽 Dataloader (graph-gophers)
 - ♻️ Echo Server (labstack echo)
