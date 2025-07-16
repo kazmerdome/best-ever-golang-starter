@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
 
 	"github.com/gosimple/slug"
 

@@ -20,12 +20,12 @@ directive @goTag(
 # Scalars
 #
 scalar Time
-scalar Uuid @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Uuid")
-scalar Json @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Json")
+scalar Uuid @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Uuid")
+scalar Json @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Json")
 
 # Inputs
 # 
-input IntFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.IntFilter") {
+input IntFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.IntFilter") {
 	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: Int
 	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
@@ -38,7 +38,7 @@ input IntFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/
 	lte: Int
 }
 
-input Float64Filter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.Float64Filter") {
+input Float64Filter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.Float64Filter") {
 	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: Float
 	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
@@ -51,7 +51,7 @@ input Float64Filter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-star
 	lte: Float
 }
 
-input DateFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.DateFilter") {
+input DateFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.DateFilter") {
 	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: Time
 	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
@@ -64,33 +64,33 @@ input DateFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter
 	lte: Time
 }
 
-input StringFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.StringFilter") {
+input StringFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.StringFilter") {
   "Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: String
   "Specifies a regular expression pattern for matching strings."
   regex: String
 }
 
-input UuidFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.UuidFilter") {
+input UuidFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.UuidFilter") {
   "Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: Uuid
   "Specifies a list of UUID values. The $in operator matches documents where the value of a field equals any value in the specified list."
   in: [Uuid!]
 }
 
-input SortFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortFilter") {
+input SortFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortFilter") {
   sortBy: String
 	sortOrder: SortOrder
 }
 
-input PaginationFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.PaginationFilter") {
+input PaginationFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.PaginationFilter") {
   limit: Int
 	skip: Int
 }
 
 # Enums
 # 
-enum SortOrder @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortOrder") {
+enum SortOrder @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortOrder") {
   asc
 	desc
 }

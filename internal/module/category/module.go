@@ -1,10 +1,6 @@
 package category
 
-import "gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
-
-//go:generate make name=CategoryService mock
-//go:generate make name=CategoryRepository mock
-//go:generate make name=CategoryDataloader mock
+import "github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
 
 type categoryModule struct {
 	service CategoryService

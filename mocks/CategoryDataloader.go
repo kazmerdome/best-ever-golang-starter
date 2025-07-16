@@ -5,7 +5,7 @@ package mocks
 import (
 	context "context"
 
-	category "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	category "github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
 
 	mock "github.com/stretchr/testify/mock"
 

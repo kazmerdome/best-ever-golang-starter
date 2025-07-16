@@ -5,8 +5,13 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
 )
+
+//go:generate make name=PostService mock
+//go:generate make name=PostRepository mock
+//go:generate make name=PostDataloader mock
+//go:generate make name=Querier structname=PostQuerier filename=PostQuerier.go srcpkg=github.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier mock
 
 // Interface
 //

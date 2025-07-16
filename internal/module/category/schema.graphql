@@ -1,6 +1,6 @@
 # Models (types) & Enums
 # 
-type Category @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.Category") {
+type Category @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.Category") {
   id: Uuid!
   name: String!
   slug: String
@@ -9,7 +9,7 @@ type Category @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/in
   updated_at: Time!
 }
 
-enum CategoryStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.CategoryStatus") {
+enum CategoryStatusEnum @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.CategoryStatus") {
   ACTIVE
   PENDING
   ARCHIVED
@@ -17,13 +17,13 @@ enum CategoryStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-
 
 # Dto (inputs)
 # 
-input CreateCategoryDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.CreateDto") {
+input CreateCategoryDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.CreateDto") {
   name: String!
   slug: String
   status: CategoryStatusEnum
 }
 
-input WhereCategoriesDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.WhereDto") {
+input WhereCategoriesDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.WhereDto") {
   name: StringFilter
   slug: StringFilter
   status: CategoryStatusEnum
@@ -31,7 +31,7 @@ input WhereCategoriesDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang
   pagination: PaginationFilter
 }
 
-input UpdateCategoryDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.UpdateDto") {
+input UpdateCategoryDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.UpdateDto") {
   name: String
   slug: String
   status: CategoryStatusEnum

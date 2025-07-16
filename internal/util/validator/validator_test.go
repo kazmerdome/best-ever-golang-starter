@@ -3,8 +3,8 @@ package validator_test
 import (
 	"testing"
 
+	"github.com/kazmerdome/best-ever-golang-starter/internal/util/validator"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/validator"
 )
 
 func TestValidator(t *testing.T) {

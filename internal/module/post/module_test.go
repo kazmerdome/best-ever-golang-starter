@@ -3,9 +3,9 @@ package post_test
 import (
 	"testing"
 
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/post"
+	"github.com/kazmerdome/best-ever-golang-starter/mocks"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/mocks"
 )
 
 type moduleFixture struct {

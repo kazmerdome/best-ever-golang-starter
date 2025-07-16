@@ -8,7 +8,7 @@ import (
 	mock "github.com/stretchr/testify/mock"
 	mongo "go.mongodb.org/mongo-driver/mongo"
 
-	mongodb "gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
+	mongodb "github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb"
 
 	options "go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -100,7 +100,7 @@ func (_c *Database_Aggregate_Call) RunAndReturn(run func(context.Context, interf
 	return _c
 }
 
-// Client provides a mock function with given fields:
+// Client provides a mock function with no fields
 func (_m *Database) Client() *mongo.Client {
 	ret := _m.Called()
 
@@ -604,7 +604,7 @@ func (_c *Database_ListCollections_Call) RunAndReturn(run func(context.Context, 
 	return _c
 }
 
-// Name provides a mock function with given fields:
+// Name provides a mock function with no fields
 func (_m *Database) Name() string {
 	ret := _m.Called()
 

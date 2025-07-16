@@ -1,8 +1,8 @@
 package graph
 
 import (
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/post"
 )
 
 // This file will not be regenerated automatically.

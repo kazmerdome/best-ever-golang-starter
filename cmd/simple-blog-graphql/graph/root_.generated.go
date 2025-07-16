@@ -11,10 +11,10 @@ import (
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
 	"github.com/google/uuid"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/category"
+	"github.com/kazmerdome/best-ever-golang-starter/internal/module/post"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category"
-	"gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post"
 )
 
 // NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
@@ -100,7 +100,7 @@ func (e *executableSchema) Schema() *ast.Schema {
 	return parsedSchema
 }
 
-func (e *executableSchema) Complexity(typeName, field string, childComplexity int, rawArgs map[string]interface{}) (int, bool) {
+func (e *executableSchema) Complexity(ctx context.Context, typeName, field string, childComplexity int, rawArgs map[string]any) (int, bool) {
 	ec := executionContext{nil, e, 0, 0, nil}
 	_ = ec
 	switch typeName + "." + field {
@@ -152,7 +152,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Mutation_createCategory_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_createCategory_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -164,7 +164,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Mutation_createPost_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_createPost_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -176,7 +176,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Mutation_deleteCategory_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_deleteCategory_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -188,7 +188,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Mutation_deletePost_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_deletePost_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -200,7 +200,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Mutation_updateCategory_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_updateCategory_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -212,7 +212,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Mutation_updatePost_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_updatePost_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -280,7 +280,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Query_getCategory_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_getCategory_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -292,7 +292,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Query_getPost_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_getPost_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -304,7 +304,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Query_listCategories_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_listCategories_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -316,7 +316,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			break
 		}
 
-		args, err := ec.field_Query_listPosts_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_listPosts_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
@@ -342,8 +342,8 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 }
 
 func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
-	rc := graphql.GetOperationContext(ctx)
-	ec := executionContext{rc, e, 0, 0, make(chan graphql.DeferredResult)}
+	opCtx := graphql.GetOperationContext(ctx)
+	ec := executionContext{opCtx, e, 0, 0, make(chan graphql.DeferredResult)}
 	inputUnmarshalMap := graphql.BuildUnmarshalerMap(
 		ec.unmarshalInputCreateCategoryDto,
 		ec.unmarshalInputCreatePostDto,
@@ -361,7 +361,7 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 	)
 	first := true
 
-	switch rc.Operation.Operation {
+	switch opCtx.Operation.Operation {
 	case ast.Query:
 		return func(ctx context.Context) *graphql.Response {
 			var response graphql.Response
@@ -369,7 +369,7 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 			if first {
 				first = false
 				ctx = graphql.WithUnmarshalerMap(ctx, inputUnmarshalMap)
-				data = ec._Query(ctx, rc.Operation.SelectionSet)
+				data = ec._Query(ctx, opCtx.Operation.SelectionSet)
 			} else {
 				if atomic.LoadInt32(&ec.pendingDeferred) > 0 {
 					result := <-ec.deferredResults
@@ -399,7 +399,7 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 			}
 			first = false
 			ctx = graphql.WithUnmarshalerMap(ctx, inputUnmarshalMap)
-			data := ec._Mutation(ctx, rc.Operation.SelectionSet)
+			data := ec._Mutation(ctx, opCtx.Operation.SelectionSet)
 			var buf bytes.Buffer
 			data.MarshalGQL(&buf)
 
@@ -477,12 +477,12 @@ directive @goTag(
 # Scalars
 #
 scalar Time
-scalar Uuid @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Uuid")
-scalar Json @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Json")
+scalar Uuid @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Uuid")
+scalar Json @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/graph/scalar.Json")
 
 # Inputs
 # 
-input IntFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.IntFilter") {
+input IntFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.IntFilter") {
 	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: Int
 	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
@@ -495,7 +495,7 @@ input IntFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/
 	lte: Int
 }
 
-input Float64Filter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.Float64Filter") {
+input Float64Filter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.Float64Filter") {
 	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: Float
 	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
@@ -508,7 +508,7 @@ input Float64Filter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-star
 	lte: Float
 }
 
-input DateFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.DateFilter") {
+input DateFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.DateFilter") {
 	"Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: Time
 	"$gt selects those documents where the value of the field is greater than (i.e. >) the specified value."
@@ -521,40 +521,40 @@ input DateFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter
 	lte: Time
 }
 
-input StringFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.StringFilter") {
+input StringFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.StringFilter") {
   "Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: String
   "Specifies a regular expression pattern for matching strings."
   regex: String
 }
 
-input UuidFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.UuidFilter") {
+input UuidFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.UuidFilter") {
   "Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value."
   eq: Uuid
   "Specifies a list of UUID values. The $in operator matches documents where the value of a field equals any value in the specified list."
   in: [Uuid!]
 }
 
-input SortFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortFilter") {
+input SortFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortFilter") {
   sortBy: String
 	sortOrder: SortOrder
 }
 
-input PaginationFilter @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.PaginationFilter") {
+input PaginationFilter @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.PaginationFilter") {
   limit: Int
 	skip: Int
 }
 
 # Enums
 # 
-enum SortOrder @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortOrder") {
+enum SortOrder @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/util/filter.SortOrder") {
   asc
 	desc
 }
 `, BuiltIn: false},
 	{Name: "../../../internal/module/category/schema.graphql", Input: `# Models (types) & Enums
 # 
-type Category @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.Category") {
+type Category @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.Category") {
   id: Uuid!
   name: String!
   slug: String
@@ -563,7 +563,7 @@ type Category @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/in
   updated_at: Time!
 }
 
-enum CategoryStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.CategoryStatus") {
+enum CategoryStatusEnum @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.CategoryStatus") {
   ACTIVE
   PENDING
   ARCHIVED
@@ -571,13 +571,13 @@ enum CategoryStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-
 
 # Dto (inputs)
 # 
-input CreateCategoryDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.CreateDto") {
+input CreateCategoryDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.CreateDto") {
   name: String!
   slug: String
   status: CategoryStatusEnum
 }
 
-input WhereCategoriesDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.WhereDto") {
+input WhereCategoriesDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.WhereDto") {
   name: StringFilter
   slug: StringFilter
   status: CategoryStatusEnum
@@ -585,7 +585,7 @@ input WhereCategoriesDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang
   pagination: PaginationFilter
 }
 
-input UpdateCategoryDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/category.UpdateDto") {
+input UpdateCategoryDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/category.UpdateDto") {
   name: String
   slug: String
   status: CategoryStatusEnum
@@ -606,7 +606,7 @@ extend type Mutation {
 `, BuiltIn: false},
 	{Name: "../../../internal/module/post/schema.graphql", Input: `# Models (types) & Enums
 # 
-type Post @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.Post") {
+type Post @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.Post") {
   id: Uuid!
   title: String!
   slug: String!
@@ -617,7 +617,7 @@ type Post @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/intern
   updated_at: Time!
 }
 
-enum PostStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.PostStatus") {
+enum PostStatusEnum @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.PostStatus") {
   ACTIVE
   PENDING
   ARCHIVED
@@ -625,7 +625,7 @@ enum PostStatusEnum @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-star
 
 # Dto (inputs)
 # 
-input CreatePostDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.CreateDto") {
+input CreatePostDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.CreateDto") {
   title: String!
   slug: String
   status: PostStatusEnum!
@@ -633,7 +633,7 @@ input CreatePostDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-star
   content: String
 }
 
-input WherePostsDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.WhereDto") {
+input WherePostsDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.WhereDto") {
   title: StringFilter
   slug: StringFilter
   category: UuidFilter
@@ -642,7 +642,7 @@ input WherePostsDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-star
   pagination: PaginationFilter
 }
 
-input UpdatePostDto @goModel(model: "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post.UpdateDto") {
+input UpdatePostDto @goModel(model: "github.com/kazmerdome/best-ever-golang-starter/internal/module/post.UpdateDto") {
   title: String
   slug: String
   category: Uuid

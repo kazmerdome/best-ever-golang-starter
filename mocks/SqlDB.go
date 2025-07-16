@@ -5,8 +5,8 @@ package mocks
 import (
 	context "context"
 
+	db "github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql"
 	mock "github.com/stretchr/testify/mock"
-	db "gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/sql"
 
 	sql "database/sql"
 )
@@ -24,7 +24,7 @@ func (_m *SqlDB) EXPECT() *SqlDB_Expecter {
 	return &SqlDB_Expecter{mock: &_m.Mock}
 }
 
-// Begin provides a mock function with given fields:
+// Begin provides a mock function with no fields
 func (_m *SqlDB) Begin() (db.SqlTx, error) {
 	ret := _m.Called()
 

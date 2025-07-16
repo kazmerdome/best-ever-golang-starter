@@ -7,9 +7,9 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-//go:generate make name=Mongodb srcpkg=gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb mock
-//go:generate make name=Database srcpkg=gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb mock
-//go:generate make name=Collection srcpkg=gitlab.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb mock
+//go:generate make name=Mongodb srcpkg=github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb mock
+//go:generate make name=Database srcpkg=github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb mock
+//go:generate make name=Collection srcpkg=github.com/kazmerdome/best-ever-golang-starter/internal/actor/db/mongodb mock
 
 type Mongodb interface {
 	Connect() Mongodb

@@ -5,9 +5,9 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/graph-gophers/dataloader"
+	dl "github.com/kazmerdome/best-ever-golang-starter/internal/util/dataloader"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	dl "gitlab.com/kazmerdome/best-ever-golang-starter/internal/util/dataloader"
 )
 
 type postDataloader struct {

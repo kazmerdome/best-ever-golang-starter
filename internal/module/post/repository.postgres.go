@@ -8,9 +8,9 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gosimple/slug"
+	postQuerier "github.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	postQuerier "gitlab.com/kazmerdome/best-ever-golang-starter/internal/module/post/post-querier"
 )
 
 var ErrPostNotFound = fmt.Errorf("post is not found")
