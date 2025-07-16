@@ -100,7 +100,7 @@ func (_c *Database_Aggregate_Call) RunAndReturn(run func(context.Context, interf
 	return _c
 }
 
-// Client provides a mock function with given fields:
+// Client provides a mock function with no fields
 func (_m *Database) Client() *mongo.Client {
 	ret := _m.Called()
 
@@ -604,7 +604,7 @@ func (_c *Database_ListCollections_Call) RunAndReturn(run func(context.Context, 
 	return _c
 }
 
-// Name provides a mock function with given fields:
+// Name provides a mock function with no fields
 func (_m *Database) Name() string {
 	ret := _m.Called()
 

@@ -8,6 +8,10 @@ import (
 	"github.com/kazmerdome/best-ever-golang-starter/internal/util/filter"
 )
 
+//go:generate make name=CategoryService mock
+//go:generate make name=CategoryRepository mock
+//go:generate make name=CategoryDataloader mock
+
 // Interface
 //
 
